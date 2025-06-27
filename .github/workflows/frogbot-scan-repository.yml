@@ -19,17 +19,14 @@ jobs:
         branch: ["main"]
     steps:
       - uses: jfrog/frogbot@v2
+
         env:
-          # [Mandatory]
-          # JFrog platform URL
-          JF_URL: ${{ secrets.JF_URL }}
-
-          # [Mandatory if JF_USER and JF_PASSWORD are not provided]
-          # JFrog access token with 'read' permissions on Xray service
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
-
-          # [Mandatory if JF_ACCESS_TOKEN is not provided]
-          # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
+          JF_URL: https://rodolphefplus.jfrog.io 
+        with:
+          oidc-provider-name: rodolphef-benchmarkjava 
+          oidc-audience: rodolphef-benchmarkjava-audience
+            # [Mandatory if JF_ACCESS_TOKEN is not provided]
+            # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
           # JF_USER: ${{ secrets.JF_USER }}
 
           # [Mandatory if JF_ACCESS_TOKEN is not provided]
