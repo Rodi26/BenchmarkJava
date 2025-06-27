@@ -48,14 +48,8 @@ jobs:
         # with:
         #   oidc-provider-name: ""
         JF_DEPS_REPO: "w2-week2-maven-dev-virtual"
-        JF_DEPS_REPO_TYPE: "maven"
-        JF_DEPS_REPO_URL: "https://rodolphefplus.jfrog"
+
         JF_RELEASES_REPO: "w2-week2-maven-dev-virtual"
-        JF_RELEASES_REPO_TYPE: "maven"
-        JF_RELEASES_REPO_URL: "https://rodolphefplus.jfrog"
+
         JF_SNAPSHOTS_REPO: "w2-week2-maven-dev-virtual"
-        JF_SNAPSHOTS_REPO_TYPE: "maven"
-        JF_SNAPSHOTS_REPO_URL: "https://rodolphefplus.jfrog"
-        JF_VCS_REPO: "w2-week2-maven-dev-virtual"
-        JF_VCS_REPO_TYPE: "maven"
-        JF_VCS_REPO_URL: "https://rodolphefplus.jfrog"
+
