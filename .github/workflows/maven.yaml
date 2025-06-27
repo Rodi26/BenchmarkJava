@@ -26,9 +26,9 @@ jobs:
         distribution: 'zulu'
     - name: Setup JFrog CLI
     - uses: jfrog/setup-jfrog-cli@v4
-    env:
+      env:
         JF_URL: https://rodolphefplus.jfrog.io 
-    with:
+      with:
         oidc-provider-name: rodolphef-benchmarkjava 
         oidc-audience: rodolphef-benchmarkjava-audience
     - name : Config JFrog CLI
