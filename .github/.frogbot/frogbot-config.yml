@@ -1,5 +1,10 @@
-scan:
-  projects:
-    - workingDirs:
-        - "."
-      repository: "maven-virtual"
+- params:
+    git:
+      repoName: "BenchmarkJava"
+      branches:
+        - master
+    scan:
+      projects:
+        - workingDirs:
+            - "."
+          repository: "w2-week2-maven-dev-virtual"  # <-- nom de ton repo virtuel Artifactory Maven ici
