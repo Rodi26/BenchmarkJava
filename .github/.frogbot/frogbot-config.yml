@@ -1,0 +1,5 @@
+scan:
+  projects:
+    - workingDirs:
+        - "."
+      repository: "maven-virtual"
