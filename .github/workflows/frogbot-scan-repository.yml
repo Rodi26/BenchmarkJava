@@ -18,6 +18,8 @@ jobs:
         # The repository scanning will be triggered periodically on the following branches.
         branch: ["master"]
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - uses: jfrog/frogbot@v2
 
         env:
