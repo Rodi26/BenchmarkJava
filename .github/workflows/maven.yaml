@@ -25,12 +25,12 @@ jobs:
         java-version: '11'
         distribution: 'zulu'
     - name: Setup JFrog CLI
-      uses: jfrog/setup-jfrog-cli@v4
-      env:
-        JF_URL: ${{ secrets.JF_URL }}
-      with:
-          oidc-provider-name:  ${{ vars.OIDC_PROVIDER_NAME  }}
-          oidc-audience:  ${{ vars.OIDC_AUDIENCE  }}
+    - uses: jfrog/setup-jfrog-cli@v4
+    env:
+        JF_URL: https://rodolphefplus.jfrog.io 
+    with:
+        oidc-provider-name: rodolphef-benchmarkjava 
+        oidc-audience: rodolphef-benchmarkjava-audience
     - name : Config JFrog CLI
       run : |
         jf mvnc --repo-deploy-releases=${{ vars.MVN_DEV_REPO_DEPLOY_RELEASES }} --repo-deploy-snapshots=${{ vars.MVN_DEV_REPO_DEPLOY_SNAPSHOTS }} --repo-resolve-releases=${{ vars.MVN_DEV_REPO_RESOLVE_RELEASES }} --repo-resolve-snapshots=${{ vars.MVN_DEV_REPO_RESOLVE_SNAPSHOTS }}
