@@ -49,7 +49,3 @@ jobs:
         #   oidc-provider-name: ""
         JF_DEPS_REPO: "w2-week2-maven-dev-virtual"
 
-        JF_RELEASES_REPO: "w2-week2-maven-dev-virtual"
-
-        JF_SNAPSHOTS_REPO: "w2-week2-maven-dev-virtual"
-
