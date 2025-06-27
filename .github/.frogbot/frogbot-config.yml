@@ -5,5 +5,5 @@
         - master
     scan:
       projects:
-        - workingDirs:
-          repository: w2-week2-maven-dev-virtual  # <-- nom de ton repo virtuel Artifactory Maven ici
+        - workingDirs: []
+          repository: w2-week2-maven-dev-virtual
