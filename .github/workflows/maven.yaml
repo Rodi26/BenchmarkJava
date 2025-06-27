@@ -1,6 +1,14 @@
-name: Java CI with Maven
+name: BENCHMARKJAVA build with Maven
 
 on: [push, pull_request]
+
+permissions:
+  actions: read           # for detecting the Github Actions environment
+  id-token: write         # for creating OIDC tokens for signing
+  packages: write         # for uploading attestations
+  contents: read          # read the contents permission
+  security-events: write  # for uploading code scanning
+
 
 jobs:
   build:
@@ -16,8 +24,19 @@ jobs:
       with:
         java-version: '11'
         distribution: 'zulu'
+    - name: Setup JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v4
+      env:
+        JF_URL: ${{ secrets.JF_URL }}
+      with:
+          oidc-provider-name:  ${{ vars.OIDC_PROVIDER_NAME  }}
+          oidc-audience:  ${{ vars.OIDC_AUDIENCE  }}
+    - name : Config JFrog CLI
+      run : |
+        jf mvnc --repo-deploy-releases=${{ vars.MVN_DEV_REPO_DEPLOY_RELEASES }} --repo-deploy-snapshots=${{ vars.MVN_DEV_REPO_DEPLOY_SNAPSHOTS }} --repo-resolve-releases=${{ vars.MVN_DEV_REPO_RESOLVE_RELEASES }} --repo-resolve-snapshots=${{ vars.MVN_DEV_REPO_RESOLVE_SNAPSHOTS }}
+
     - name: Run Spotless check
-      run: mvn spotless:check
+      run: jf mvn spotless:check
     - name: Create WAR
-      run: mvn package
+      run: jf mvn package
 
