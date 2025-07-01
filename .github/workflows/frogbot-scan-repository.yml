@@ -26,7 +26,7 @@ jobs:
           JF_URL: https://rodolphefplus.jfrog.io 
           JF_GIT_BASE_BRANCH: ${{ matrix.branch }}
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JF_DEP_REPO: ${{ vars.MVN_DEV_REPO_DEPLOY_RELEASES }} 
+          JF_DEPS_REPO: ${{ vars.MVN_DEV_REPO_DEPLOY_RELEASES }} 
 
         with:
           oidc-provider-name: rodolphef-benchmarkjava 
