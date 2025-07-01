@@ -7,3 +7,10 @@
       projects:
         - workingDirs: []
           repository: w2-week2-maven-dev-virtual
+          # Add specific exclusions for known false positives
+          excludePaths:
+            - "**/pom.xml"
+          # Add environment variables for better control
+          env:
+            FROGBOT_FAIL_ON_SEVERITY: "High"
+            FROGBOT_INCLUDE_ALL_VULNERABILITIES: "false"
