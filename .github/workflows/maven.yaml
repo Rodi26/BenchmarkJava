@@ -1,9 +1,11 @@
 name: BENCHMARKJAVA build with Maven
 
-on: [push, pull_request]
-schedule:
-  # The repository will be scanned once a day at 00:00 GMT.
-  - cron: "0 0 * * *"
+on: 
+  push:
+  pull_request:
+  schedule:
+    # The repository will be scanned once a day at 00:00 GMT.
+    - cron: "0 0 * * *"
 permissions:
   actions: read           # for detecting the Github Actions environment
   id-token: write         # for creating OIDC tokens for signing
