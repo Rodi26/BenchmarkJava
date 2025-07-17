@@ -43,4 +43,6 @@ jobs:
       run: jf mvn spotless:check
     - name: Create WAR
       run: jf mvn package
+    - name: Deploy WAR to Artifactory
+      run: jf mvn deploy
 
