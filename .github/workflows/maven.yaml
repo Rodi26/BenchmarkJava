@@ -39,8 +39,16 @@ jobs:
       run : |
         jf mvnc --repo-deploy-releases=${{ vars.MVN_DEV_REPO_DEPLOY_RELEASES }} --repo-deploy-snapshots=${{ vars.MVN_DEV_REPO_DEPLOY_SNAPSHOTS }} --repo-resolve-releases=${{ vars.MVN_DEV_REPO_RESOLVE_RELEASES }} --repo-resolve-snapshots=${{ vars.MVN_DEV_REPO_RESOLVE_SNAPSHOTS }}
 
+    - name: Clear Maven cache for problematic plugins
+      run: |
+        rm -rf ~/.m2/repository/com/diffplug/spotless
+        rm -rf ~/.m2/repository/org/jasig/mojo/jspc
+        rm -rf ~/.m2/repository/com/h3xstream/findsecbugs
+        # Also clear plugin metadata cache
+        find ~/.m2/repository -name "*.lastUpdated" -delete 2>/dev/null || true
+
     - name: Run Spotless check
-      run: jf mvn spotless:check
+      run: jf mvn -e -U spotless:check
     - name: Create WAR
       run: jf mvn package
     - name: Deploy WAR to Artifactory
