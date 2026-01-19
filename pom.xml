@@ -1082,12 +1082,6 @@
                 </dependencies>
             </plugin>
 
-            <plugin>
-                <groupId>com.h3xstream.findsecbugs</groupId>
-                <artifactId>findsecbugs-plugin</artifactId>
-                <!-- You MUST update the plugin version used in findsecbugs profile, so these versions match. You can't define/use a versions.findsecbugs property because it breaks the naming of the findsecbugs results file. -->
-                <version>1.14.0</version>
-            </plugin>
 
             <plugin>
                 <groupId>com.internetitem</groupId>
